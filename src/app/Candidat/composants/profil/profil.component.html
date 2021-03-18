@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>WorkWise Html Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <link rel="stylesheet" type="text/css" href="../../../../assets/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/css/flatpickr.min.css">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/css/line-awesome.css">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/css/line-awesome-font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/lib/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/lib/slick/slick-theme.css">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/css/responsive.css">
+</head>
+
+
+<body>
+
+
+<div class="wrapper">
+
+
+
+  <header>
+    <div class="container">
+      <div class="header-data">
+        <div class="logo">
+          <a href="accueil" title=""><img src="../../../../assets/images/logo.png" alt=""></a>
+        </div><!--logo end-->
+        <div class="search-bar">
+          <form>
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit"><i class="la la-search"></i></button>
+          </form>
+        </div><!--search-bar end-->
+        <nav>
+          <ul>
+            <li>
+              <a href="accueil" title="">
+                <span><img src="../../../../assets/images/icon1.png" alt=""></span>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="companies" title="">
+                <span><img src="../../../../assets/images/icon2.png" alt=""></span>
+                Companies
+              </a>
+            </li>
+            <li>
+              <a href="projects.html" title="">
+                <span><img src="../../../../assets/images/icon3.png" alt=""></span>
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="listeCandidats" title="">
+                <span><img src="../../../../assets/images/icon4.png" alt=""></span>
+                Profiles
+              </a>
+            </li>
+            <li>
+              <a href="offres" title="">
+                <span><img src="../../../../assets/images/icon5.png" alt=""></span>
+                Offres
+              </a>
+            </li>
+            <li>
+              <a href="#" title="" class="not-box-open">
+                <span><img src="../../../../assets/images/icon6.png" alt=""></span>
+                Messages
+              </a>
+            </li>
+            <li>
+              <a href="#" title="" class="not-box-open">
+                <span><img src="../../../../assets/images/icon7.png" alt=""></span>
+                Notification
+              </a>
+            </li>
+          </ul>
+        </nav><!--nav end-->
+        <div class="menu-btn">
+          <a href="#" title=""><i class="fa fa-bars"></i></a>
+        </div><!--menu-btn end-->
+        <div class="user-account">
+          <div class="user-info">
+            <ul>
+              <li>
+                <a href="monProfil"><img *ngIf="candidat.photoProfil!=null" src="../../../../assets/images/{{candidat.photoProfil}}" alt="" height="30" width="30"></a>
+            <img *ngIf="candidat.photoProfil==null" src="http://via.placeholder.com/30x30">
+                <a href="monProfil" title="">{{candidat.prenom}}</a></li>
+              <li> <a (click)="deconnexion()"><i class="la la-sign-out"></i></a> </li>
+            </ul>
+          </div>
+          <div class="user-account-settingss">
+            <h3>Online Status</h3>
+            <ul class="on-off-status">
+              <li>
+                <div class="fgt-sec">
+                  <input type="radio" name="cc" id="c5">
+                  <label for="c5">
+                    <span></span>
+                  </label>
+                  <small>Online</small>
+                </div>
+              </li>
+              <li>
+                <div class="fgt-sec">
+                  <input type="radio" name="cc" id="c6">
+                  <label for="c6">
+                    <span></span>
+                  </label>
+                  <small>Offline</small>
+                </div>
+              </li>
+            </ul>
+            <h3>Custom Status</h3>
+            <div class="search_form">
+              <form>
+                <input type="text" name="search">
+                <button type="submit">Ok</button>
+              </form>
+            </div><!--search_form end-->
+            <h3>Setting</h3>
+            <ul class="us-links">
+              <li><a href="profile-account-setting.html" title="">Account Setting</a></li>
+              <li><a href="#" title="">Privacy</a></li>
+              <li><a href="#" title="">Faqs</a></li>
+              <li><a href="#" title="">Terms & Conditions</a></li>
+            </ul>
+            <h3 class="tc"><a title="" (click)="deconnexion()">Logout</a></h3>
+          </div><!--user-account-settingss end-->
+        </div>
+      </div><!--header-data end-->
+    </div>
+  </header><!--header end-->
+
+
+  <section class="cover-sec">
+    <img src="http://via.placeholder.com/1600x400" alt="">
+    <a  href="monProfil" title=""><i class="fa fa-camera" ></i>  Change Image</a>
+  </section>
+
+
+  <main>
+    <div class="main-section">
+      <div class="container">
+        <div class="main-section-data">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="main-left-sidebar">
+                <div class="user_profile">
+                  <div class="user-pro-img">
+                    <img *ngIf="candidat.photoProfil!=null" src="../../../../assets/images/{{candidat.photoProfil}}" alt="" height="170" width="170">
+                    <img *ngIf="candidat.photoProfil==null" src="http://via.placeholder.com/170x170">
+                    <a (click)="openModal(templatePhotoProfil)" title=""><i class="fa fa-camera"></i></a>
+                  </div><!--user-pro-img end-->
+                  <div class="user_pro_status">
+                    <ul class="flw-status">
+                      <li>
+                        <br>
+                        <span>Following</span>
+                        <b>{{contacts.length+entreprises.length}}</b>
+                      </li>
+                      <li>
+                        <span>Followers</span>
+                        <b>{{followers.length}}</b>
+                      </li>
+                    </ul>
+                  </div><!--user_pro_status end-->
+                  <ul class="social_links">
+                    <li><a><i class="la la-phone"></i>+(216) {{candidat.numTel}}
+                      <a (click)="openModal(templateTelephone)"><i class="fa fa-pencil"></i></a></a></li>
+                  </ul>
+                </div><!--user_profile end-->
+                <div class="suggestions full-width">
+                  <div class="sd-title">
+                    <h3>Following Candidates ({{contacts.length}})</h3>
+                    <i class="la la-ellipsis-v"></i>
+                  </div><!--sd-title end-->
+                  <div class="suggestions-list">
+                    <div class="suggestion-usd"  *ngFor="let a of contacts">
+                      <img *ngIf="a.photoProfil!=null" src="../../../../assets/images/{{a.photoProfil}}" alt="" height="35" width="35">
+                      <img *ngIf="a.photoProfil==null" src="http://via.placeholder.com/30x30">
+                      <div class="sgt-text">
+                      <a href="Profil/{{a.id}}">  <h4>{{a.nom}} {{a.prenom}}</h4> </a>
+                        <span>{{a.mail}}</span>
+                      </div>
+                    </div>
+                    <div class="view-more">
+                      <a href="#" title="">View More</a>
+                    </div>
+                  </div><!--suggestions-list end-->
+                </div><!--suggestions end-->
+
+                <div class="suggestions full-width">
+                  <div class="sd-title">
+                    <h3>Following Companies ({{entreprises.length}})</h3>
+                    <i class="la la-ellipsis-v"></i>
+                  </div><!--sd-title end-->
+                  <div class="suggestions-list">
+                    <div class="suggestion-usd"  *ngFor="let o of entreprises">
+                      <div class="sgt-text">
+                        <h4>{{o.companyName}}</h4>
+                        <span>{{o.location}}</span>
+                      </div>
+                    </div>
+                    <div class="view-more">
+                      <a href="#" title="">View More</a>
+                    </div>
+                  </div><!--suggestions-list end-->
+                </div><!--suggestions end-->
+
+
+
+                <div class="suggestions full-width">
+                  <div class="sd-title">
+                    <h3>Followers ({{followers.length}})</h3>
+                    <i class="la la-ellipsis-v"></i>
+                  </div><!--sd-title end-->
+                  <div class="suggestions-list">
+                    <div class="suggestion-usd"  *ngFor="let a of followers">
+                      <img *ngIf="a.photoProfil!=null" src="../../../../assets/images/{{a.photoProfil}}" alt="" height="35" width="35">
+                      <img *ngIf="a.photoProfil==null" src="http://via.placeholder.com/30x30">
+                      <div class="sgt-text">
+                        <a href="Profil/{{a.id}}">  <h4>{{a.nom}} {{a.prenom}}</h4> </a>
+                        <span>{{a.mail}}</span>
+                      </div>
+                    </div>
+                    <div class="view-more">
+                      <a href="#" title="">View More</a>
+                    </div>
+                  </div><!--suggestions-list end-->
+                </div><!--suggestions end-->
+
+
+                <div class="suggestions full-width">
+                  <div class="sd-title">
+                    <h3>Offres AuxQuelles J'ai postulé ({{offres.length}})</h3>
+                    <i class="la la-ellipsis-v"></i>
+                  </div><!--sd-title end-->
+                  <div class="suggestions-list">
+                    <div class="suggestion-usd"  *ngFor="let o of offres">
+                      <div class="sgt-text">
+                        <h4>{{o.contenu}}</h4>
+                        <span>{{o.date}}</span>
+                      </div>
+                    </div>
+                    <div class="view-more">
+                      <a href="" title="">View More</a>
+                    </div>
+                  </div><!--suggestions-list end-->
+                </div><!--suggestions end-->
+
+              </div><!--main-left-sidebar end-->
+            </div>
+            <div class="col-lg-6">
+              <div class="main-ws-sec">
+                <div class="user-tab-sec">
+                  <h3>{{candidat.prenom}} {{candidat.nom}}</h3>
+                  <div class="star-descp">
+                    <span>{{candidat.mail}}</span><br>
+                  </div><!--star-descp end-->
+                  <div class="tab-feed st2">
+                    <ul>
+                      <li data-tab="info-dd" class="active">
+                        <a>
+                          <img src="../../../../assets/images/ic1.png" alt="">
+                          <span>Informations</span>
+                        </a>
+                      </li>
+
+                     </ul>
+                  </div><!-- tab-feed end-->
+                </div><!--user-tab-sec end-->
+
+
+                <div class="product-feed-tab current" id="info-dd">
+                  <div class="user-profile-ov">
+                    <h3>Bio<a (click)="openModal(templateBio)"><i class="fa fa-pencil" ></i></a></h3>
+                    <p #pbio>{{candidat.bio}}</p>
+                  </div><!--user-profile-ov end-->
+                  <div class="user-profile-ov">
+                    <h3>Parcours Académique <a (click)="openModal(templateParcours)" ><i class="fa fa-pencil"></i></a></h3>
+                    <p *ngIf="parcours.length==0">{{candidat.parcours}}</p>
+                    <ul *ngFor="let a of parcours">
+                      <li>{{a}}</li>
+                    </ul>
+                  </div><!--user-profile-ov end-->
+
+                  <div class="user-profile-ov st2">
+                    <h3>Experiences <a (click)="openModal(templateExperiences)"><i class="fa fa-pencil"></i></a></h3>
+                    <p *ngIf="experiences.length==0">{{candidat.experiences}}</p>
+                    <ul *ngFor="let a of experiences">
+                      <li>{{a}}</li>
+                    </ul>
+                  </div><!--user-profile-ov end-->
+
+                  <div class="user-profile-ov">
+                    <h3>Competences<a (click)="openModal(templateCompetences)"><i class="fa fa-pencil"></i></a></h3>
+                    <p *ngIf="competences.length==0">{{candidat.competences}}</p>
+                    <ul *ngFor="let a of competences">
+                      <li>{{a}}</li>
+                    </ul>
+                  </div><!--user-profile-ov end-->
+
+
+                  <div class="user-profile-ov">
+                    <h3>Certifications <a (click)="openModal(templateCertification)"><i class="fa fa-pencil"></i></a></h3>
+                    <p *ngIf="certifications.length==0">{{candidat.certification}}</p>
+                    <ul *ngFor="let a of certifications">
+                      <li>{{a}}</li>
+                    </ul>
+                  </div><!--user-profile-ov end-->
+
+                  <div class="user-profile-ov">
+                    <h3>Adresse<a (click)="openModal(templateAdresse)"><i class="fa fa-pencil"></i></a></h3>
+                    <p #padresse>{{candidat.adresse}} </p>
+                  </div><!--user-profile-ov end-->
+
+                  <button class="btn-danger" (click)="generatePdf()"><i class="fa fa-file-pdf-o"> Generer CV </i></button>
+                </div><!--product-feed-tab end-->
+
+
+              </div><!--main-ws-sec end-->
+            </div>
+            <div class="col-lg-3">
+              <div class="right-sidebar">
+                <div class="message-btn">
+                  <a href="#" title=""><i class="fa fa-envelope"></i> Message</a>
+                </div>
+                <div class="widget widget-portfolio">
+                  <div class="wd-heady">
+                    <h3>Portfolio</h3>
+                    <img src="../../../../assets/images/photo-icon.png" alt="">
+                  </div>
+                  <div class="pf-gallery">
+                    <ul>
+                      <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                      <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                      <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                      <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                      <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                      <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                      <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                      <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                      <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                      <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                      <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                      <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                    </ul>
+                  </div><!--pf-gallery end-->
+                </div><!--widget-portfolio end-->
+              </div><!--right-sidebar end-->
+            </div>
+          </div>
+        </div><!-- main-section-data end-->
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footy-sec mn no-margin">
+      <div class="container">
+        <ul>
+          <li><a href="#" title="">Help Center</a></li>
+          <li><a href="#" title="">Privacy Policy</a></li>
+          <li><a href="#" title="">Community Guidelines</a></li>
+          <li><a href="#" title="">Cookies Policy</a></li>
+          <li><a href="#" title="">Career</a></li>
+          <li><a href="#" title="">Forum</a></li>
+          <li><a href="#" title="">Language</a></li>
+          <li><a href="#" title="">Copyright Policy</a></li>
+        </ul>
+        <p><img src="../../../../assets/images/copy-icon2.png" alt="">Copyright 2018</p>
+        <img class="fl-rgt" src="../../../../assets/images/logo2.png" alt="">
+      </div>
+    </div>
+  </footer><!--footer end-->
+
+
+</div><!--theme-layout end-->
+
+<ng-template #templateBio>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modifier Bio</h4>
+    <button type="button" class="modal-title pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="ModifForm">
+      Bio : <input type="text" [value]="candidat.bio" formControlName="bio">
+      <br>
+      <br>
+   <button type="button" class="btn btn-danger" style="align-content: end" (click)="modifier()" (click)="modalRef.hide()">Save</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #templateExperiences>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Experiences</h4>
+    <button type="button" class="modal-title pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="ModifForm">
+      Experiences : <input type="text" [value]="candidat.experiences" formControlName="experiences">
+      <br>
+      <br>
+      <button type="button" class="btn btn-danger" style="align-content: end" (click)="modifier()" (click)="modalRef.hide()">Save</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #templateParcours>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Parcours Academique</h4>
+    <button type="button" class="modal-title pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="ModifForm">
+      Parcours Academique : <input type="text" [value]="candidat.parcours" formControlName="parcours">
+      <br>
+      <br>
+      <button type="button" class="btn btn-danger" style="align-content: end" (click)="modifier()" (click)="modalRef.hide()">Save</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #templateCompetences>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Competences</h4>
+    <button type="button" class="modal-title pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="ModifForm">
+      Competences : <input type="text" [value]="candidat.competences" formControlName="competences">
+      <br>
+      <br>
+      <button type="button" class="btn btn-danger" style="align-content: end" (click)="modifier()" (click)="modalRef.hide()">Save</button>
+    </form>
+  </div>
+</ng-template>
+
+
+<ng-template #templateCertification>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Certifications</h4>
+    <button type="button" class="modal-title pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="ModifForm">
+      Certifications : <input type="text" [value]="candidat.certification" formControlName="certifications">
+      <br>
+      <br>
+      <button type="button" class="btn btn-danger" style="align-content: end" (click)="modifier()" (click)="modalRef.hide()">Save</button>
+    </form>
+  </div>
+</ng-template>
+
+
+<ng-template #templateAdresse>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Adresse</h4>
+    <button type="button" class="modal-title pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="ModifForm">
+      Adresse : <input type="text" [value]="candidat.adresse" formControlName="adresse">
+      <br>
+      <br>
+      <button type="button" class="btn btn-danger" style="align-content: end" (click)="modifier()" (click)="modalRef.hide()">Save</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #templateTelephone>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Telephone</h4>
+    <button type="button" class="modal-title pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="ModifForm">
+      Numero Telephone : <input type="number" [value]="candidat.numTel" formControlName="numTel">
+      <br>
+      <div *ngIf="Tel.invalid  && Tel.touched">
+          <p style="color: red">  * num Tel invalide (8 chiffres) * </p>
+      </div>
+
+      <br>
+      <button type="button" class="btn btn-danger" style="align-content: end" (click)="modifier()" (click)="modalRef.hide()">Save</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #templatePhotoProfil>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Photo de Profil</h4>
+    <button type="button" class="modal-title pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="ModifForm">
+      Photo : <input type="file" accept="image/*" (change)="onFileChange($event)" [value]="candidat.photoProfil" formControlName="photoProfil">
+      <br>
+      <img src="../../../../assets/images/{{file.name}}" height="170" width="170">
+      <br><br><br><br><br><br><br><br>
+      <br>
+      <button type="button" class="btn btn-danger" style="align-content: end" (click)="modifier()" (click)="modalRef.hide()">Save</button>
+    </form>
+  </div>
+</ng-template>
+
+
+
+<script type="text/javascript" src="../../../../assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../assets/js/popper.js"></script>
+<script type="text/javascript" src="../../../../assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../../assets/js/flatpickr.min.js"></script>
+<script type="text/javascript" src="../../../../assets/lib/slick/slick.min.js"></script>
+<script type="text/javascript" src="../../../../assets/js/script.js"></script>
+</body>
+</html>

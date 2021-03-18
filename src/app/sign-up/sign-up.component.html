@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>WorkWise Html Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+
+</head>
+
+
+<body class="sign-in">
+
+
+<div class="wrapper">
+
+
+  <div class="sign-in-page">
+    <div class="signin-popup">
+      <div class="signin-pop">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="cmp-info">
+              <div class="cm-logo">
+                <img src="../../assets/images/cm-logo.png" alt="">
+                <p>Workwise,  is a global freelancing platform and social networking where businesses and independent professionals connect and collaborate remotely</p>
+              </div><!--cm-logo end-->
+              <img src="../../assets/images/cm-main-img.png" alt="">
+            </div><!--cmp-info end-->
+          </div>
+          <div class="col-lg-6">
+            <div class="login-sec">
+              <ul class="sign-control">
+                <li data-tab="tab-1" ><a href="signIn" title="">Sign in</a></li>
+                <li data-tab="tab-2" class="current"><a href="signup" title="">Sign up</a></li>
+              </ul>
+              <div class="sign_in_sec current" id="tab-2">
+                <div class="signup-tab">
+                  <ul>
+                    <li data-tab="tab-3" class="current"><a href="signUp" title="">Candidate</a></li>
+                    <li data-tab="tab-4"><a href="signUp" title="">Company</a></li>
+                  </ul>
+                </div><!--signup-tab end-->
+                <div class="dff-tab current" id="tab-3">
+                  <h3>Sign Up</h3>
+
+                  <form [formGroup]="Inscription">
+                    <div class="row">
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="text" name="name" placeholder="Last Name" formControlName="nom">
+                          <i class="la la-user"></i>
+                          <div *ngIf="Nom.invalid  && Nom.touched">
+                            <div *ngIf="Nom.errors.required">
+                              <p style="color: red"> * nom obligatoire * </p></div>
+                          </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="text" name="name" placeholder="First Name" formControlName="prenom">
+                          <i class="la la-user"></i>
+                          <div *ngIf="Prenom.invalid  && Prenom.touched">
+                            <div *ngIf="Prenom.errors.required">
+                              <p style="color: red"> * prenom obligatoire * </p></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="text" name="name" placeholder="Mail" formControlName="mail">
+                          <i class="la la-mail-forward"></i>
+                          <div *ngIf="Mail.invalid  && Mail.touched">
+                            <div *ngIf="Mail.errors.required">
+                              <p style="color: red"> * mail obligatoire * </p></div>
+                            <div *ngIf="Mail.errors.email">
+                              <p style="color: red">  * mail invalide * </p> </div>
+                          </div>
+
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="password" name="password" placeholder="Password" formControlName="password">
+                          <i class="la la-lock"></i>
+                          <div *ngIf="Password.invalid  && Password.touched">
+                            <div *ngIf="Password.errors.required">
+                              <p style="color: red"> * password obligatoire * </p></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="password" name="repeat-password" placeholder="Repeat Password" #rp>
+                          <i class="la la-lock"></i>
+                          <p [hidden]="Inscription.value.password==rp.value" style="color: red">** veuillez repeter le meme password **</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="checky-sec st2">
+                          <div class="fgt-sec">
+                            <input type="checkbox" name="cc" id="c2">
+                            <label for="c2">
+                              <span></span>
+                            </label>
+                            <small>Yes, I understand and agree to the workwise Terms & Conditions.</small>
+                          </div><!--fgt-sec end-->
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <button [disabled]="Inscription.invalid" type="submit" value="submit" (click)="ajouter()" (click)="openModal(template)" >Get Started</button>
+                      </div>
+                    </div>
+                  </form>
+                </div><!--dff-tab end-->
+              </div><!--dff-tab end-->
+            </div>
+          </div><!--login-sec end-->
+        </div>
+      </div>
+    </div><!--signin-pop end-->
+  </div><!--signin-popup end-->
+  <div class="footy-sec">
+    <div class="container">
+      <ul>
+        <li><a href="#" title="">Help Center</a></li>
+        <li><a href="#" title="">Privacy Policy</a></li>
+        <li><a href="#" title="">Community Guidelines</a></li>
+        <li><a href="#" title="">Cookies Policy</a></li>
+        <li><a href="#" title="">Career</a></li>
+        <li><a href="#" title="">Forum</a></li>
+        <li><a href="#" title="">Language</a></li>
+        <li><a href="#" title="">Copyright Policy</a></li>
+      </ul>
+      <p><img src="../../assets/images/copy-icon.png" alt="">Copyright 2018</p>
+    </div>
+  </div><!--footy-sec end-->
+</div><!--sign-in-page end-->
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Inscription</h4>
+  </div>
+  <div class="modal-body">
+    <p>Vous êtes maintenant un Candidat inscrit dans nontre platforme . <br>
+      Un mail de confirmation vous a été envoyé, vérifier votre boite mail pour valider votre compte.
+    </p>
+    <br>
+    <br>
+      <button type="button" class="btn btn-danger" style="align-content: end" (click)="redirect()" (click)="modalRef.hide()">OK</button>
+  </div>
+</ng-template>
+
+<!--theme-layout end-->
+
+<script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/js/popper.js"></script>
+<script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/lib/slick/slick.min.js"></script>
+<script type="text/javascript" src="../../assets/js/script.js"></script>
+
+
+</body>
+</html>
